@@ -1,11 +1,28 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { TweenMax, Power3 } from "gsap";
 
 function App() {
 	let logoItem = useRef(null);
-	console.log(logoItem);
+	let textItem = useRef(null);
+
+	useEffect(() => {
+		console.log(logoItem);
+
+		TweenMax.to(logoItem, 0.8, {
+			opacity: 1,
+			y: -20,
+			ease: Power3.easeOut,
+		});
+
+		TweenMax.to(textItem, 0.8, {
+			opacity: 1,
+			y: -20,
+			ease: Power3.easeOut,
+			delay: 0.4,
+		});
+	}, []);
 
 	return (
 		<div className="App">
@@ -18,7 +35,11 @@ function App() {
 					className="App-logo"
 					alt="logo"
 				/>
-				<p>
+				<p
+					ref={(el) => {
+						textItem = el;
+					}}
+				>
 					Edit <code>src/App.js</code> and save to reload.
 				</p>
 				<a
