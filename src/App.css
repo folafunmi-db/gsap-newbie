@@ -1,11 +1,6 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-  opacity: 0;
+  visibility: hidden;
 }
 
 .App-header {
@@ -19,19 +14,18 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.circle {
+  width: 75px;
+  height: 75px;
+  margin: 50px;
+  background-color: yellow;
+  border-radius: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.circle.red {
+  background-color: #fd5150;
 }
 
-p {
-  opacity: 0;
+.circle.blue {
+  background-color: #194efd
 }
