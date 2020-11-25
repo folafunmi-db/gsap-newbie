@@ -8,12 +8,28 @@ function App() {
 	let circleRed = useRef(null);
 	let circleBlue = useRef(null);
 
+	const [state, setState] = useState(false);
+
+	const flipState = () => {
+		setState(!state);
+	};
+
 	const handleExpand = () => {
 		TweenMax.to(circleRed, 0.8, {
 			width: 200,
 			height: 200,
 			ease: Power3.easeOut,
 		});
+		flipState();
+	};
+
+	const handleShrink = () => {
+		TweenMax.to(circleRed, 0.8, {
+			width: 75,
+			height: 75,
+			ease: Power3.easeOut,
+		});
+		flipState();
 	};
 
 	useEffect(() => {
@@ -51,7 +67,7 @@ function App() {
 				<div className="circle-container">
 					<div ref={(el) => (circle = el)} className="circle"></div>
 					<div
-						onClick={handleExpand}
+						onClick={state ? handleShrink : handleExpand}
 						ref={(el) => (circleRed = el)}
 						className="circle red"
 					></div>
